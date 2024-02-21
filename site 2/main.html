@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body style="background-color: #FCF7F3;">
+    <nav class="outside-nav login">
+      <span>
+       <a href="home.html"><img  style="height:35px; padding-left: 10px;"src="../images/logo.jpeg" alt="logo"></a>
+      </span>
+      <span class="nav-bar">
+       <a class="anchor" href="/"> <span class="bar varela-round-regular">Home</span></a>
+     <a class="anchor" href="about"> <span class="bar varela-round-regular">About</span></a>
+      <a class="anchor" href="contactUs"><span class="bar varela-round-regular">Contact Us</span></a>
+      </span>
+  </nav>
+      <br>
+      <section class="login-section">
+
+        <div class="login-container">
+          <div class="logo-container" style="display: flex;justify-content: center;">
+            <div class="logo">
+              <img src="../images/logo.jpeg" alt="HOMEBIZZ" class="logo-img" style="width: 200px !important;" />
+            </div>
+          </div>
+          <div class="form-container">
+            <div class="form-wrapper">
+      
+              <form>
+                <!-- Email input -->
+                <div class="form-group">
+                  <label class="label" for="Email">Email:</label>
+                  <input type="email" placeholder="business@example.com" class="input-field" id="Email" name="Email" required/>
+                </div>
+                <br>
+                <!-- Password input -->
+                <div class="form-group">
+                  <label class="label" for="PWord" minlength="6" >Password:</label>
+                  <input type="password" placeholder="Set password" class="input-field" id="PWord" name="PWord" required oninput="validatePassword()"/>      
+                  <div id="password-error" class="error-message"></div>  
+                </div>
+                <script>
+                    function validatePassword() {
+                      var passwordInput = document.getElementById('PWord');
+                      var password = passwordInput.value;
+                  
+                      // Define regular expressions for each required character type
+                      var uppercaseRegex = /[A-Z]/;
+                      var lowercaseRegex = /[a-z]/;
+                      var digitRegex = /\d/;
+                      var specialCharRegex = /[@#%&*-]/;
+                  
+                      // Check if the password meets the criteria
+                      var isUppercase = uppercaseRegex.test(password);
+                      var isLowercase = lowercaseRegex.test(password);
+                      var isDigit = digitRegex.test(password);
+                      var isSpecialChar = specialCharRegex.test(password);
+                  
+                      // Display error message if any criteria is not met
+                      var errorElement = document.getElementById('password-error');
+                      if (!isUppercase || !isLowercase || !isDigit || !isSpecialChar || password.length < 6) {
+                          errorElement.textContent = "Password must contain at least one uppercase letter, one lowercase letter, one digit, and one special character.";
+                          passwordInput.setCustomValidity("Invalid password");
+                      } else {
+                          errorElement.textContent = "";
+                          passwordInput.setCustomValidity(""); // Reset the validation message
+                      }
+                  }
+                  </script>
+                <br>
+                <!-- Remember me and Forgot password -->
+                <div class="row mb-4">
+                  <div class="checkbox-group">
+                    <input class="checkbox" type="checkbox" value="" id="rem" checked />
+                    <label class="checkbox-label" for="rem">Remember me</label>
+                  </div>
+                  
+                  <div class="forgot-password" >
+                    <a href="#!" >Forgot password?</a>
+                  </div>
+                  
+                </div><br><br>
+                
+      
+                <!-- Submit button -->
+                <button class="submit-button" type="submit" value="submit">Sign in</button>
+      
+              </form>
+              <p  class="signup-message ">Don't have an account? <a href="signup.html">Sign Up here</a></p>
+      
+            </div>
+          </div>
+        </div>
+      </section>
+  <!-- Section: Design Block -->
+</body>
+</html>

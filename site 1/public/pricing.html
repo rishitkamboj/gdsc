@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <title>pricing</title>
+</head>
+<body style="background-color: #FCF7F3;">
+  <nav class="outside-nav">
+    <span>
+     <a href="/home"><img style="height:35px; padding-left: 10px;"src="/images/logo.jpeg" alt="logo"></a>
+    </span>
+    <span class="nav-bar">
+      <a class="anchor" href="/"><span class="bar varela-round-regular">Home</span></a>
+      <a class="anchor" href="/pricing"><span class="bar varela-round-regular">Pricing</span></a> 
+      <a class="anchor" href="/about"><span class="bar varela-round-regular">About</span></a>
+      <a class="anchor" href="/contactUs"><span class="bar varela-round-regular">Contact Us</span></a>          
+    </span>
+  </nav>
+    <div class="pricing">
+    <div style="padding-top: 30px;font-family: 'Varela Round', sans-serif; padding-left:360px;padding-right: 350px;">
+      <h1 style="font-weight:900 !important;">Start Your Business With Us</h1>
+    </div>
+    
+    <div style="padding-top: 60px;padding-left: 50px;padding-right: 50px;font-family: 'Varela Round', sans-serif;" class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Basic</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₹199<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>30 products can be added</li>
+              <li>Limited sale</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-outline-dark" onclick="redirectsignup()">Sign up</button>
+            <script>
+           function  redirectsignup() {
+                   window.location.href = '/signup';}
+            </script>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Pro</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₹299<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>60 products can be added</li>
+              <li>Moderate sale</li>
+              <li>Priority email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" onclick="redirectsignup()" class="w-100 btn btn-lg btn-dark">Get started</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-dark">
+          <div class="card-header py-3 text-bg-dark border-dark">
+            <h4 class="my-0 fw-normal">Enterprise</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">₹499<small class="text-body-secondary fw-light">/mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Unlimited products</li>
+              <li>Prority sales</li>
+              <li>Phone and email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" onclick="redirectsignup()" class="w-100 btn btn-lg btn-dark">Get started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+ 
+
+    <div class="container" style="font-family:'Varela Round', sans-seri ;">
+      <footer class="py-3 my-4">
+        <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+          <li class="nav-item"><a href="/" class="nav-link px-2 text-body-secondary">Home</a></li>
+          <li class="nav-item"><a href="/pricing" class="nav-link px-2 text-body-secondary">Pricing</a></li>
+          <li class="nav-item"><a href="/about" class="nav-link px-2 text-body-secondary">About</a></li>
+          <li class="nav-item"><a href="/contactUs" class="nav-link px-2 text-body-secondary">Contact us</a></li>
+        </ul>
+        <p class="text-center text-body-secondary">© 2023 HomeBizz, Inc</p>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

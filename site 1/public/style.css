@@ -1,0 +1,76 @@
+
+body{
+     background-color: #FCF7F3;
+   }
+   
+   .outside-nav{
+     display: flex;
+     justify-content: space-between;
+   }
+   
+   
+   .nav-bar{
+     padding-top: 5px;
+     padding-right: 25px;
+     display: flex;
+     gap:20px;
+    
+   }
+   
+   .anchor{
+     color: black;
+     text-decoration: none; 
+     font-size: large;
+       
+   
+   }
+   .loginimg{
+     height: 700px;
+     width: 400px;
+     }
+     
+   
+     .signupimg{
+       height: 1650px;
+       width:400px;
+   
+     }
+   
+   /* .loginnav{
+     position: fixed;
+   } */
+   
+   
+   
+   
+   .b_IMG{
+     display: flex;
+     justify-content: space-evenly;
+   }
+   
+   .slogan{
+     padding-top: 140px;
+     display: flex;
+     flex-direction: column;
+     font-family: "Varela Round", sans-serif;
+     font-weight: 400;
+     font-style: normal;
+    
+   }
+   
+   
+   .varela-round-regular {
+     font-family: "Varela Round", sans-serif;
+     font-weight: 600;
+     font-style: normal;
+   }
+   .pricing{
+     display: flex;
+     flex-direction: column;
+   }
+   
+   .error-message {
+     color: red;
+   }
+   
+   

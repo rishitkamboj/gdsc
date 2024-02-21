@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link href="./style.css" rel="stylesheet">
+
+</head>
+<body style="background-color: #FCF7F3;font-family:'Varela Round', sans-serif ;">
+    <nav class="navbar navbar-dark fixed-top" style="background-color: #FCF7F3;">
+        <div class="container-fluid" >
+          <!-- <a class="navbar-brand" href="#">Homebizz</a> -->
+          <a href="home.html"><img style="height:35px; padding-left: 10px;" src="../images/logo.jpeg" alt="logo"></a> 
+          <form class="d-flex mt-3 w-50" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success" type="submit">Search</button>
+          </form>
+          <a href="/cart"><button style="border: 0px;">
+            <img src="../images/cart-icon.svg" style="width: 35px;">
+          </button></a>
+          <button style="background-color:#198754;" class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Your Profile</h5>
+              <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/preorder">Orders</a>
+                </li>
+   
+              </ul>
+              <a class="nav-link active" href="/">Sign out</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <br>
+      <br>
+      <br>
+      <div id="product-container" class="container" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+
+      </div>
+  
+
+      </div>
+        <!-- <div style="display: flex;flex-direction: column;border:solid 0.5px;height: auto;width: 210px;margin-left: 10px;border-radius: 20px;background-color: white;font-family: 'Varela Round', sans-serif;"> 
+          <div style="height: 200px;width: 210px;border-radius: 20px;">
+            <img style="height: 200px;width: 208px;border-radius: 20px;" src="https://t3.ftcdn.net/jpg/02/17/28/64/360_F_217286404_yRGVNP5LcfGoKyfrNBtkRY2ybhT0YhaN.jpg" alt="img">
+          </div>
+          <div>
+            <h4 style="padding-left: 10px;font-family: 'Varela Round', sans-serif;">Mandala</h4>
+            <p style="padding-left: 10px;">Rs 1000/-</p>
+          </div>
+          <div>
+            <button style="margin: 10px;border-radius: 20px;border: solid 0.5px;padding: 5px;background-color:#198754 ;">Buy Now</button>
+          </div>
+          
+
+
+        </div> -->
+
+      
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+      <script>
+          async function handle(productArray) {
+              console.log(productArray);
+              // Extract product details from the array
+              const p_id = productArray[0];
+              const p_name = productArray[1];
+              const p_price = productArray[2];
+              const p_desc = productArray[3];
+              const img = productArray[4];
+  
+              // Construct the data object you want to send
+              const data = new URLSearchParams();
+              data.append('p_id', p_id);
+              data.append('p_name', p_name);
+              data.append('p_price', p_price);
+              data.append('p_desc', p_desc);
+              data.append('img', img);
+  
+              try {
+                  // Send a POST request to the backend
+                  const response = await fetch('/buy', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                      },
+                      body: data.toString() // Convert URLSearchParams to string
+                  });
+  
+                  // Check if the response is ok
+                  if (response.ok) {
+                      console.log('Purchase request successful');
+                      // Handle success if needed
+                  } else {
+                      console.error('Purchase request failed');
+                      // Handle failure if needed
+                  }
+              } catch (error) {
+                  console.error('Error sending purchase request:', error);
+              }
+          }
+  
+          // Fetch product data from the backend
+          fetch('/products')
+              .then(response => response.json())
+              .then(products => {
+                  // Select the product container element
+                  const productContainer = document.getElementById('product-container');
+  
+                  // Check if there are products to display
+                  if (products.length > 0) {
+                      // Loop through the products and create HTML elements to display each product
+                      products.forEach((product, index) => {
+                          // Create a new row for every 3 products
+                          if (index % 3 === 0) {
+                              const rowDiv = document.createElement('div');
+                              rowDiv.classList.add('row');
+                              productContainer.appendChild(rowDiv);
+                          }
+  
+                          // Create a div element for each product column
+                          const productDiv = document.createElement('div');
+                          productDiv.classList.add('col-md-4', 'product-item'); // Adjust column size based on your layout preference
+  
+                          // Populate the product details inside the column
+                          productDiv.innerHTML = `
+                              <div style="display: flex;flex-direction: column;border:solid 0.5px;height: auto;width: 210px;margin-left: 10px;border-radius: 20px;background-color: white;font-family: 'Varela Round', sans-serif;"> 
+                                  <div style="height: 200px;width: 210px;border-radius: 20px;">
+                                      <img style="height: 200px;width: 210px;border-radius: 20px;" src="${product.img}" alt="img">
+                                  </div>
+                                  <div>
+                                      <h4 style="padding-left: 10px;font-family: 'Varela Round', sans-serif;">${product.p_name}</h4>
+                                      <p style="padding-left: 10px;">₹ ${product.p_price}/-</p>
+                                  </div>
+                                  <div>
+                                      <button onclick="handle([${product.p_id}, '${product.p_name}', ${product.p_price}, '${product.p_desc}', '${product.img}'])" style="margin: 10px;border-radius: 20px;border: solid 0.5px;padding: 5px;background-color:#99BC85 ;">Buy Now</button>
+                                  </div>
+                              </div>
+                          `;
+  
+                          // Append the product column to the current row
+                          const currentRow = productContainer.lastElementChild;
+                          currentRow.appendChild(productDiv);
+                      });
+                  } else {
+                      // If there are no products to display, you can show a message or hide the container
+                      productContainer.innerHTML = '<p>No products available</p>';
+                  }
+              })
+              .catch(error => console.error('Error fetching product data:', error));
+      </script>
+</body>
+</html>
